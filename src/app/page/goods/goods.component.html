@@ -32,7 +32,16 @@
 
   </div>
 </div>
+
 <div class="image-container">
+
+  <!-- Check if goods is undefined or empty -->
+  <div *ngIf="!this.goods || this.goods.length === 0">
+    <!-- Show loading message or spinner -->
+     <br />
+    <mat-spinner></mat-spinner>
+  </div>
+
   <!-- Use ngFor to loop through the image data -->
   <div class="image-row" *ngFor="let image of this.goods">
     <!-- Use ngIf to only display images in the row if they exist -->
@@ -50,6 +59,7 @@
       </div>
     </div>
   </div>
+
 </div>
 
 <app-footer></app-footer>

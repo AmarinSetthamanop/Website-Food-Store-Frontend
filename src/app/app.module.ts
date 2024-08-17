@@ -17,6 +17,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 /* Http */
 import { HttpClientModule } from '@angular/common/http';
@@ -65,7 +66,8 @@ import { SingUpComponent } from './page/sing-up/sing-up.component';
     MatChipsModule,
     MatDialogModule,
     MatProgressBarModule,
-    MatCardModule
+    MatCardModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
