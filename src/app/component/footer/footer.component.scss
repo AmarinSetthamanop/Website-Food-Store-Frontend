@@ -1,0 +1,8 @@
+.center-text {
+  text-align: center; /* Centers the text horizontally */
+  display: flex; /* Enables flexbox layout */
+  justify-content: center; /* Centers the content vertically */
+  align-items: center; /* Centers the content horizontally */
+  height: 20vh; /* Sets the height of the container to 100% of the viewport height */
+  font-family: 'Bungee', cursive;
+}

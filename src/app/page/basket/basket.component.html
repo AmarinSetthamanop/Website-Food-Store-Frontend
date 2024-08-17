@@ -1,0 +1,75 @@
+
+<app-header></app-header>
+
+
+<div class="container">
+  <table class="example-table mat-elevation-z8" mat-table recycleRows [dataSource]="basket"><!--iorderOid(Array<IOrderOID>) ที่เป็น object ของ class-->
+    <!-- Delete Column -->
+    <ng-container matColumnDef="delete"><!--อิง ชื่อ columns ที่อยู่ใน displayedColumns(String Array)-->
+      <th mat-header-cell *matHeaderCellDef> Delete </th><!--ชื่อ columns-->
+      <td mat-cell *matCellDef="let element"><button mat-fab color="accent" (click)="deleteGoods(element)"><mat-icon>cancel</mat-icon></button></td><!--ข้อมูลที่อยู่ใน iorder-->
+    </ng-container>
+
+    <!-- No. Column -->
+    <ng-container matColumnDef="no"><!--อิง ชื่อ columns ที่อยู่ใน displayedColumns(String Array)-->
+      <th mat-header-cell *matHeaderCellDef> No. </th><!--ชื่อ columns-->
+      <td mat-cell *matCellDef="let element"> {{element.no}} </td><!--ข้อมูลที่อยู่ใน iorder-->
+    </ng-container>
+
+    <!-- Url Column -->
+    <ng-container matColumnDef="url"><!--อิง ชื่อ columns ที่อยู่ใน displayedColumns(String Array)-->
+      <th mat-header-cell *matHeaderCellDef> Photo </th><!--ชื่อ columns--><!--ข้อมูลที่อยู่ใน iorder-->
+      <td mat-cell *matCellDef="let element"> <img width="100" height="100" src="{{element.url}}" alt="{{element.name}}"> </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="goods_name"><!--อิง ชื่อ columns ที่อยู่ใน displayedColumns(String Array)-->
+      <th mat-header-cell *matHeaderCellDef> Goods Name </th><!--ชื่อ columns-->
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td><!--ข้อมูลที่อยู่ใน iorder-->
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price"><!--อิง ชื่อ columns ที่อยู่ใน displayedColumns(String Array)-->
+      <th mat-header-cell *matHeaderCellDef> Price </th><!--ชื่อ columns-->
+      <td mat-cell *matCellDef="let element"> ฿{{element.price}} </td><!--ข้อมูลที่อยู่ใน iorder-->
+    </ng-container>
+
+    <!-- amount Column -->
+    <ng-container matColumnDef="amount"><!--อิง ชื่อ columns ที่อยู่ใน displayedColumns(String Array)-->
+      <th mat-header-cell *matHeaderCellDef> Amount </th><!--ชื่อ columns-->
+      <td mat-cell *matCellDef="let element"> <input min="1" #amount type="number" value="{{element.amount}}" (change)="editAmount(element, amount.value)"> </td><!--ข้อมูลที่อยู่ใน iorder-->
+    </ng-container>
+
+    <!-- total Column -->
+    <ng-container matColumnDef="total"><!--อิง ชื่อ columns ที่อยู่ใน displayedColumns(String Array)-->
+      <th mat-header-cell *matHeaderCellDef> Total </th><!--ชื่อ columns-->
+      <td mat-cell *matCellDef="let element" style="color: crimson;"> ฿{{element.total}} </td><!--ข้อมูลที่อยู่ใน iorder-->
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr><!--อิง ชื่อ columns ที่ต้องการแสดงจาก displayedColumns(String Array)-->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr><!--อิง ชื่อ columns ที่ต้องการแสดงจาก displayedColumns(String Array)-->
+  </table>
+
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar><!--ลูกเล่น เลื่อนไป ขวา-->
+  <mat-progress-bar mode="query"></mat-progress-bar><!--ลูกเล่น เลื่อไป ซ้าย-->
+
+  <!--card แสดงชื่อลูกค้าที่เป็นคนสั่ง order นี้ -> สถานที่จัดส่ง -> ราความรวมทั้งหมด-->
+  <mat-card>
+    <mat-card-header>
+      <!-- <mat-card-title>Email : {{this.customer[0].email}}</mat-card-title> -->
+
+      <mat-card-title>Name : {{this.customer[0].name}} {{this.customer[0].email}} </mat-card-title>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+      <mat-card-subtitle>รายการอาหารทั้งหมด : <p style="color: rgb(217, 123, 142);">{{this.all_items}} รายการ</p> </mat-card-subtitle>
+      <mat-card-subtitle>ราคารวม : <p style="color: rgb(217, 123, 142);">฿{{this.sum_total}} (ค่าส่ง 15 บาท)</p> </mat-card-subtitle>
+      <mat-card-subtitle>ราคาที่ต้องจ่าย : <p style="color: crimson;">฿{{this.end_total}}</p> </mat-card-subtitle>
+      <button mat-raised-button style="background-color: aquamarine;" (click)="openDelivery()">สั่งซื้อ</button>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+
+<app-footer></app-footer>

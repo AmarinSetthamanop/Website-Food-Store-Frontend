@@ -1,0 +1,56 @@
+<div
+  style="
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  ">
+
+<div class="container">
+  <div class="title" style="font-family: 'Bungee', cursive;">Create Account</div>
+
+    <div class="user-details">
+
+      <div class="input-box" style="font-family: 'Exo 2', sans-serif;">
+        <span class="details">Full Name</span>
+        <input type="text" placeholder="Enter your name" required name="name" #name>
+      </div>
+
+      <div class="input-box" style="font-family: 'Exo 2', sans-serif;">
+        <span class="details">Address</span>
+        <input type="text" placeholder="Enter your address" required name="address" #address>
+      </div>
+
+      <div class="input-box" style="font-family: 'Exo 2', sans-serif;">
+        <span class="details">Email</span>
+        <input type="email" placeholder="Enter your email" required name="email" #email>
+      </div>
+
+      <div class="input-box" style="font-family: 'Exo 2', sans-serif;">
+        <span class="details">Phone Number</span>
+        <input type="text" placeholder="Enter your number" required name="phone" #phone>
+      </div>
+
+      <div class="input-box" style="font-family: 'Exo 2', sans-serif;">
+        <span class="details">Password</span>
+        <input type="password" placeholder="Enter your password" required name="password" #password>
+      </div>
+
+      <div class="input-box" style="font-family: 'Exo 2', sans-serif;">
+        <span class="details">Confirm Password</span>
+        <input type="password" placeholder="Confirm your Password" required name="confirmPassword" #confirmPassword>
+      </div>
+
+    </div>
+
+    <div style="font-family: 'Exo 2', sans-serif;">
+      <button class="button" (click)="addSingUp(name.value, phone.value, address.value, email.value, password.value, confirmPassword.value)">
+        Create Account
+      </button>
+    </div>
+
+</div>
+
+</div>

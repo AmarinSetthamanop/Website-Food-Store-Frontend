@@ -1,0 +1,36 @@
+
+<div
+  style="
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right,#3f5efb,#fc466b);
+  ">
+
+  <div
+    style="
+      width: 25rem;
+      height: 28rem;
+      display: flex;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, .37);
+      border-radius: 30px;
+      border-left: 1px solid rgba(255, 255, 255, .3);
+      border-top: 1px solid rgba(255, 255, 255, .3);
+    "
+  >
+    <h1 class="h1">LOGIN</h1>
+    <label class="label">Email</label>
+    <input class="input" type="email" name="email" #email>
+
+    <label class="label">Password</label>
+    <input class="input" type="password" name="password" #password>
+
+    <button class="button" (click)="addLogIn(email.value, password.value)">Login</button>
+
+    <a href="" class="a" routerLink="/singUp">Create Account</a> <!-- เมื่อ click ข้อความ Create Account จะทำการเปิดหน้าสมัครสมาชิกเเล้วเรียกเมธอด closeDialog() เพื่อปิดหน้าต่าง-->
+  </div>
+</div>

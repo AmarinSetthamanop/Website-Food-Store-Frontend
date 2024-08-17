@@ -1,0 +1,63 @@
+
+<app-header></app-header>
+
+<div class="container" style="width: 55%; margin-top: 5%;">
+
+  <mat-chip-listbox>
+    <mat-chip-option color="primary" (selectionChange)="iorderAll()" selected> ทั้งหมด </mat-chip-option>
+    <mat-chip-option color="warn" (selectionChange)="iorderStatus('ยังไม่ส่ง')"> ยังไม่ส่ง</mat-chip-option>
+    <mat-chip-option color="primary" (selectionChange)="iorderStatus('จัดส่งแล้ว')"> จัดส่งแล้ว </mat-chip-option>
+  </mat-chip-listbox>
+
+
+  <table class="example-table mat-elevation-z8" mat-table recycleRows [dataSource]="iorder"><!--iorder(Array<IOrder>) ที่เป็น object ของ class-->
+    <!-- Oid Column -->
+    <ng-container matColumnDef="oid"><!--อิง ชื่อ columns ที่อยู่ใน displayedColumns(String Array)-->
+      <th mat-header-cell *matHeaderCellDef> Oid </th><!--ชื่อ columns-->
+      <td mat-cell *matCellDef="let element"> {{element.oid}} </td><!--ข้อมูลที่อยู่ใน iorder-->
+    </ng-container>
+
+    <!-- customer_Name Column -->
+    <ng-container matColumnDef="customer_name"><!--อิง ชื่อ columns ที่อยู่ใน displayedColumns(String Array)-->
+      <th mat-header-cell *matHeaderCellDef> Customer name </th><!--ชื่อ columns-->
+      <td mat-cell *matCellDef="let element"> {{element.customer_name}} </td><!--ข้อมูลที่อยู่ใน iorder-->
+    </ng-container>
+
+    <!-- Customer_phone Column -->
+    <ng-container matColumnDef="customer_phone"><!-- อิงชื่อ column ที่อยู่ใน displayedColumns(String Array) -->
+      <th mat-header-cell *matHeaderCellDef> Customer Phone </th><!-- ชื่อ column -->
+      <td mat-cell *matCellDef="let element"> {{element.customer_phone}} </td><!-- ข้อมูลที่อยู่ใน iorder -->
+    </ng-container>
+
+    <!-- status Column -->
+    <ng-container matColumnDef="status"><!--อิง ชื่อ columns ที่อยู่ใน displayedColumns(String Array)-->
+      <th mat-header-cell *matHeaderCellDef> Status </th><!--ชื่อ columns-->
+      <!--<td mat-cell *matCellDef="let element"> <button mat-raised-button color="warn">{{element.status}}</button> </td>ข้อมูลที่อยู่ใน iorder-->
+      <td mat-cell *matCellDef="let element">
+        <!--รูปแบบปุ่มกด-->
+        <mat-chip-listbox aria-label="Fish selection">
+          <!--เงื่อนไข ถ้า status_boo ของ order นั้นๆ เป็น true-false-->
+          <div *ngIf="element.status == 'จัดส่งแล้ว'; else not_shipped">
+            <!--จัดส่งแล้ว-->
+              <mat-chip-option color="warn" (selectionChange)="editStatus(element.oid, 'ยังไม่ส่ง')"> ยังไม่ส่ง </mat-chip-option>
+              <mat-chip-option color="primary" (selectionChange)="editStatus(element.oid, 'จัดส่งแล้ว')" selected> จัดส่งแล้ว </mat-chip-option>
+          </div>
+            <!--ยังไม่จัดส่ง-->
+            <ng-template #not_shipped>
+              <mat-chip-option color="warn" (selectionChange)="editStatus(element.oid, 'ยังไม่ส่ง')" selected> ยังไม่ส่ง </mat-chip-option>
+              <mat-chip-option color="primary" (selectionChange)="editStatus(element.oid, 'จัดส่งแล้ว')"> จัดส่งแล้ว </mat-chip-option>
+            </ng-template>
+          <!--ปุ่มกดดูรายละเอียด-->
+          <button mat-raised-button color="accent" style="margin-right: 0%;" (click)="addOid(element.oid, element.customer_address, element.customer_name, element.customer_phone)">รายละเอียด</button>
+        </mat-chip-listbox>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr><!--อิง ชื่อ columns ที่ต้องการแสดง displayedColumns(String Array)-->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr><!--อิง ชื่อ columns ที่ต้องการแสดง displayedColumns(String Array)-->
+  </table>
+</div>
+
+<app-footer></app-footer>
+

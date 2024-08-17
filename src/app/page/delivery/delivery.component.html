@@ -1,0 +1,48 @@
+<div
+  style="
+    padding: 10px;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  ">
+
+<div class="container">
+  <div class="title" style="font-family: 'Bungee', cursive;">Delivery Address</div>
+
+    <div class="user-details">
+
+      <div class="input-box" style="font-family: 'Exo 2', sans-serif;">
+        <span class="details">Full Name</span>
+        <input type="text" placeholder="Enter your name" required name="name" #name>
+      </div>
+
+      <div class="input-box" style="font-family: 'Exo 2', sans-serif;">
+        <span class="details">Phone Number</span>
+        <input type="text" placeholder="Enter your number" required name="phone" #phone>
+      </div>
+
+      <div class="input-box" style="font-family: 'Exo 2', sans-serif;">
+        <span class="details">Address</span>
+        <input type="text" placeholder="Enter your address" required name="address" #address>
+      </div>
+
+      <div class="input-box" style="margin-top: 15px;">
+        <span class="details" style="font-family: 'Prompt', sans-serif;">ราคาที่ต้องจ่าย : </span>
+        <span class="details" style="color: crimson; font-family: 'Russo One', sans-serif;">฿{{this.end_total}}</span>
+      </div>
+
+    </div>
+
+    <div style="font-family: 'Exo 2', sans-serif;">
+      <button class="button" (click)="orderConfirmation(name.value, phone.value, address.value)">
+        Order
+      </button>
+      <button class="button" style="margin-left: 10px;" (click)="cancel()"> <!-- เมื่อกดที่ button ปุ่มนี้จะทำการเรียกเมธอด cancel เพื่อปิดหน้าต่าง Dialog -->
+        Cancel
+      </button>
+    </div>
+
+</div>
+
+</div>

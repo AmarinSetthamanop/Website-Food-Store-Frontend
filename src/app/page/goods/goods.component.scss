@@ -1,0 +1,85 @@
+.image-container {
+  // display: flex; and flex-wrap: wrap; เพื่อสร้างคอนเทนเนอร์ที่อนุญาตให้
+  // รูปภาพตัดไปที่แถวถัดไปเมื่อมีรูปภาพมากกว่า 5 รูป, เราใช้ justify-content: space-between;
+  // เพื่อกระจายภาพในแต่ละแถวเท่า ๆ กัน
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-left: 15px;
+}
+
+.image-row {
+  display: flex;
+  //width: calc(20% - 1rem);
+  margin-right: 1rem;
+  margin-top: 50px;
+}
+
+.image-col {
+  flex: 1;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+}
+
+.reposition {
+  margin-top: 55px;
+}
+
+.fixed-icon-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+}
+.fixed-icon-container_2 {
+  position: fixed;
+  bottom: 120px;
+  right: 30px;
+  z-index: 9999;
+}
+.icon-display-2 {
+  border-radius: 16%;
+  transform: scale(2.5);
+  color: white;
+  background: linear-gradient(to left top, #a11f5a 50%, #b33771 50%);
+}
+// css ในการเเสดงรูปภาพ
+.grow img{
+  transition: 1s ease;
+}
+.grow img:hover{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  transition: 1s ease;
+}
+
+
+.div {
+  text-align:center;
+  font-family: 'Prompt', sans-serif;
+}
+.center-text {
+  text-align: center; /* Centers the text horizontally */
+  display: flex; /* Enables flexbox layout */
+  justify-content: center; /* Centers the content vertically */
+  align-items: center; /* Centers the content horizontally */
+  height: 20vh; /* Sets the height of the container to 100% of the viewport height */
+}
+.mat-chip-option {
+  font-family: 'Prompt', sans-serif;
+}
+
+.button {
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  font-family: 'Mitr', sans-serif;
+}
+.button:hover {
+  background-color: rgb(31, 30, 30);
+  color: white;
+}

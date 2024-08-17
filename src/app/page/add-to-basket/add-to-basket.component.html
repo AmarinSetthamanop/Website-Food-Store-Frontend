@@ -1,0 +1,38 @@
+<div
+  style="
+    padding:0px;
+    background-color: #6D214F;
+
+    flex-direction: column;
+    height: 220px;
+    width: 300px;
+    margin: 20px;
+    font-family: 'Mitr', sans-serif;
+  ">
+
+  <div class="center-text">
+    <p>{{ name }}</p> <!-- นำ attribute จากไฟล์ .ts ที่เก็บชื่ออาหารที่ลูกค้าเลือกมาเเสดง -->
+  </div>
+  <div style="display: flex; align-items: center; color: white;">
+    <p>จำนวน</p>
+    <input class="input" type="number" value="1" min="1" max="50" name="amount" #amount><!-- min="1" max="25" หมายถึง ป้อนได้ตํ่าสุด 1 สูงสุด 25 ข้อมูลที่ส่งใน Tag input จะอยู่ในตัวเเปร #amount -->
+  </div>
+  <div class="wrapper">
+
+    <button (click)="addFood(gid , amount.value)"> <!-- เมื่อ click ที่ button จะทำการเรียกเมธอด addFood เพื่อเพิ่มอาหารลงในตะกร้า โดยส่ง gid เเละ จำนวน(amount) ที่ลูกค้าเลือก -->
+      เพิ่มลงรถเข็น
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button style="margin-top: 5px;" (click)="close()"> <!-- เมื่อ click ที่ button จะทำการเรียกเมธอด close() เพื่อปิดหน้าต่าง dialog -->
+      ปิด
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+</div>

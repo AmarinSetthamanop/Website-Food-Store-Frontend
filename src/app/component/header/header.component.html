@@ -1,0 +1,64 @@
+<mat-toolbar
+  class="fxLayout dark app-toolbar"
+  style="
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(31, 30, 30);
+    color: ghostwhite;
+  ">
+
+  <div class="fxLayout" style="flex-direction: row; align-items: center;">
+
+    <button mat-flat-button class="button" style="background-color: rgb(31, 30, 30); color: ghostwhite;" routerLink="">
+      Menu
+    </button>
+
+    <button mat-flat-button class="button" style="background-color: rgb(31, 30, 30); color: ghostwhite;" routerLink="/basket">
+      Basket
+    </button>
+
+    <button mat-flat-button class="button" style="background-color: rgb(31, 30, 30); color: ghostwhite;" routerLink="/iorderCustomer">
+      Order Online
+    </button>
+
+    <button mat-icon-button style="margin-left: 820px" (click)="addLogIn()"> <!-- เมื่อ click ที่ button ปุ่มนี้จะทำการเปิด dialog หน้า Log In -->
+      <mat-icon class="icon-display-1">login</mat-icon>
+    </button>
+
+    <button mat-flat-button class="button" style="background-color: rgb(31, 30, 30); color: ghostwhite;" routerLink="/login"> <!-- เมื่อ click ที่ button ปุ่มนี้จะทำการเปิด dialog หน้า Log In -->
+      Log In
+    </button>
+
+  </div>
+</mat-toolbar>
+<div style="position: relative;">
+  <img class="img" width="100%" src="https://static.wixstatic.com/media/0b340f_3996ca4661ef4803abd7db2f7e547718~mv2.jpg/v1/fill/w_1349,h_702,al_b,q_85,usm_0.66_1.00_0.01,enc_auto/0b340f_3996ca4661ef4803abd7db2f7e547718~mv2.jpg" alt="">
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;">
+    <div class="center-text">
+      <h1 class="font_1">The</h1>
+    </div>
+    <div class="center-text">
+      <img class="img_2" src="https://static.wixstatic.com/media/5bfb6f_480f29f12dbc425eb73628161dd29077.png/v1/fill/w_60,h_25,al_c,lg_1,q_85,enc_auto/5bfb6f_480f29f12dbc425eb73628161dd29077.png" alt="">
+      <h1 class="font_2">THAI FOOD</h1>
+      <img class="flipped-image" src="https://static.wixstatic.com/media/5bfb6f_480f29f12dbc425eb73628161dd29077.png/v1/fill/w_60,h_25,al_c,lg_1,q_85,enc_auto/5bfb6f_480f29f12dbc425eb73628161dd29077.png" alt="">
+    </div>
+    <div class="center-text">
+      <p class="font_3">TAKEOUT & DELIVERY</p>
+    </div>
+  </div>
+</div>
+<mat-divider class="mat-divider"></mat-divider>
+<div>
+  <div class="center-text-2">
+    <h1 class="h1_1">
+      Food Items
+    </h1>
+  </div>
+  <div class="center-text-2">
+    <h1 class="h1_2">
+      THE PASSION FOR THAI FOOD
+    </h1>
+  </div>
+</div>

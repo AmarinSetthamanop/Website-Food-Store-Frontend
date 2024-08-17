@@ -1,0 +1,56 @@
+
+<app-header></app-header>
+
+
+<!-- <div class="fixed-icon-container">
+  <button mat-icon-button (click)="openBasket()">
+    <mat-icon class="icon-display-2">shopping_cart</mat-icon>
+  </button>
+</div> -->
+<!-- <div class="fixed-icon-container_2">
+  <button mat-icon-button (click)="findAll()"> เมื่อ click ที่ button ปุ่มนี้จะทำการเรียกเมธอด findAll เพื่อเเสดงข้อมูลอาหารทั้งหมด
+    <mat-icon class="icon-display-2">home</mat-icon>
+  </button>
+</div> -->
+
+<div class="center-text">
+
+  <div class="reposition">
+
+    <input #productName type="text" style="width: 400px; font-family: 'Maitree', serif;" class="form-control-lg border border-2 border-dark" placeholder="กรุณากรอกชื่ออาหาร" (keydown.enter)="search(productName.value)"> <!-- keydown.enter คือการกด enter เเล้วให้ทำงาน -->
+    <button type="button" style="margin-left: 5px; width: 75px; height: 45px;" class="button" (click)="search(productName.value)">ค้นหา</button> <!-- เมื่อ click button ตัวนี้จะทำการเรียกเมธอด search เพื่อค้นหาอาหารจากชื่ออาหาร -->
+
+    <mat-chip-listbox aria-label="Fish selection" style="margin-top: 20px;">
+      <mat-chip-option class="mat-chip-option" color="accent" selected (click)="findAll()">
+        ทั้งหมด
+      </mat-chip-option>
+
+      <mat-chip-option class="mat-chip-option" color="accent" *ngFor="let value of this.type" (click)="findByType(value.name)">
+        {{ value.name }}
+      </mat-chip-option>
+    </mat-chip-listbox>
+
+  </div>
+</div>
+<div class="image-container">
+  <!-- Use ngFor to loop through the image data -->
+  <div class="image-row" *ngFor="let image of this.goods">
+    <!-- Use ngIf to only display images in the row if they exist -->
+    <div class="image-col" *ngIf="image" style="background: linear-gradient(to left top, #e28eb4 50%, #f5afcf 50%); border-radius: 15px;">
+      <div class="grow">
+        <img src="{{ image.url }}" alt="{{ image.gid }}" class="image">
+      </div><br>
+      <div class="div">
+        <p>{{ image.name }}</p>
+        <p style="display: inline-block; margin-right: 10px;">{{ image.type }}</p>
+        <p style="color: crimson; display: inline-block; font-family: 'Russo One', sans-serif;">฿{{ image.price }}</p><br>
+        <button mat-icon-button (click)="addNew(image.gid, image.name)"><!-- เมื่อลูกค้าเลือกรายการสินค้า ก็จะทำการเรียกเมธอด addNew เพื่อเปิด dialog โดยการส่ง รหัสอาหาร เเละ ชื่ออาหาร ของอาหารนั้นๆไป -->
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
